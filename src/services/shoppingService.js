@@ -15,7 +15,7 @@ export const shoppingItemService = {
     // getEmptyCar,
     // subscribe,
     // unsubscribe
-    
+    getItemsPrice
 }
 
 
@@ -23,6 +23,10 @@ export const shoppingItemService = {
 async function query() {
     let items = await fetch('https://fakestoreapi.com/products').then(response => response.json())
     return items 
+}
+
+function getItemsPrice(items) {
+
 }
 // function getById(carId) {
 //     return storageService.get(STORAGE_KEY, carId)

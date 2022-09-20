@@ -1,11 +1,11 @@
 import { ShoppingItem } from "./ShoppingItem";
 
 
-export const ShoppingList = ({shoppingItems}) => {
+export const ShoppingList = ({shoppingItems, setBoughtItems, boughtItems, setPrice}) => {
    
     return (
-        <div className="col-4">
-            {shoppingItems.map(item => <ShoppingItem item={item}/>)}
+        <div className="shoppingList">
+            {shoppingItems.map(item => <ShoppingItem item={item} setBoughtItems={setBoughtItems} boughtItems={boughtItems} setPrice={setPrice}/>)}
         </div>
     ) 
 };

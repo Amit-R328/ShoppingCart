@@ -13,13 +13,15 @@
 
 
 // Views
-@import "views/todo-app";
+@import "views/shoppingCart";
 
 
 // Components
 @import "cmps/app-header";
 @import "cmps/app-footer";
 @import "cmps/user-msg";
+@import "cmps/shoppingList";
+@import "cmps/shoppingItem";
 
 
 
