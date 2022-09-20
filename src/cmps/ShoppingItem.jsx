@@ -2,9 +2,10 @@ import { useState } from "react"
 
 export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) => {
     const [qy, setQy] = useState(0)
+    const [itemPrice, setItemPrice] = useState(0)
 
     const changeQy = (event) => {
-        setPrice(0)
+        setItemPrice(0)
         console.log(event)
         event.preventDefault()
         let items = {
@@ -14,20 +15,27 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
         }
         items.total = +(items.price * items.quantity)
         console.log(items)
-        if (boughtItems.includes(item.title)) {
+        if (boughtItems.includes(items.name)) {
             setBoughtItems(boughtItems.map(bought => {
-                if (bought.title === item.title) {
+                if (bought.name === items.title) {
                     return {
-                        ...bought, quantity: item.quantity, total: +(item.price * item.quantity)
+                        ...bought, quantity: items.quantity, total: +(items.price * items.quantity)
                     }
                 }
-                return item
+                return bought
             }))
         } else setBoughtItems([...boughtItems, items])
+        setItemPrice(items.total)
     }
 
     const addItem = (event) => {
         setQy(event.target.value)
+    }
+
+    const removeItem = () => {
+        setBoughtItems(boughtItems.filter(boughtItem => boughtItem.name !== item.title))
+        setQy(0)
+        setItemPrice(0)
     }
 
     return (
@@ -46,6 +54,9 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
                             <input id="qy" name="qy" type="number" min={0} onChange={addItem} />
                             <button type="submit">Add</button>
                         </form>
+                        <h4>Item quantity: {qy}</h4>
+                        <h4>total Price: {itemPrice}</h4>
+                        <button onClick={removeItem}>Remove</button>
 
                     </div>
                 </div>
