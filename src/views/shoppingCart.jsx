@@ -26,7 +26,6 @@ const ShoppingCart = () => {
 
 
     const getPrice = () => {
-        console.log('boughtItems:::::::', boughtItems)
         let totalPrice = boughtItems.reduce((pre, item) => pre + item.total,0)
         setPrice(totalPrice)
     }

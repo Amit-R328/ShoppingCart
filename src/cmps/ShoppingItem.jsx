@@ -1,9 +1,19 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) => {
     const [qy, setQy] = useState(0)
     const [itemPrice, setItemPrice] = useState(0)
     const inputRef = useRef()
+
+    useEffect(() => {
+        for(let i = 0; i < boughtItems.length; i++) {
+            if(boughtItems[i].name === item.title){
+                setQy(boughtItems[i].quantity)
+                setItemPrice(boughtItems[i].total)
+                break
+            }
+        }
+    },[])
 
     const changeQy = (event) => {
         setItemPrice(0)
