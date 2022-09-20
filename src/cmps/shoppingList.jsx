@@ -6,7 +6,7 @@ export const ShoppingList = ({shoppingItems, setBoughtItems, boughtItems, setPri
     return (
         <div className="container shoppingList">
             <div className="row">
-            {shoppingItems.map(item => <ShoppingItem item={item} setBoughtItems={setBoughtItems} boughtItems={boughtItems} setPrice={setPrice}/>)}
+            {shoppingItems.map(item => <ShoppingItem  key={item.title} item={item} setBoughtItems={setBoughtItems} boughtItems={boughtItems} setPrice={setPrice}/>)}
             </div>
         </div>
     ) 

@@ -46,7 +46,6 @@ const ShoppingCart = () => {
             localStorage.setItem("boughtItems", JSON.stringify([]))
         } else {
             let itemsLocal = JSON.parse(localStorage.getItem("boughtItems"))
-            console.log(itemsLocal)
             setBoughtItems(itemsLocal)
         }
     }

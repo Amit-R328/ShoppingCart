@@ -57,14 +57,14 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
     return (
         <div className="col-md-4 card p-0 mb-3 shadow-sm border-0">
             <div className="row">
-                <div class="col-md-4 product_img">
-                    <img src={`${item.image}`} class="card-img" alt="..." />
+                <div className="col-md-4 product_img">
+                    <img src={`${item.image}`} className="card-img" alt="..." />
                 </div>
-                <div class="col-8">
-                    <div class="card-body">
-                        <p class="product-price"><b>Price:</b> {item.price}$</p>
-                        <h5 class="product-title">{item.title}</h5>
-                        <p class="product-text"> {item.description}</p>
+                <div className="col-8">
+                    <div className="card-body">
+                        <p className="product-price"><b>Price:</b> {item.price}$</p>
+                        <h5 className="product-title">{item.title}</h5>
+                        <p className="product-text"> {item.description}</p>
                         <form onSubmit={(event, item) => changeQy(event, item)}>
                             <label htmlFor="qy">Add to cart</label>
                             <input ref={inputRef} id="qy" name="qy" type="number" min={0} onChange={addItem} />

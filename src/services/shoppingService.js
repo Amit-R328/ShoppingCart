@@ -1,8 +1,8 @@
 export const shoppingItemService = {
-    query,
+    query
 }
 
 async function query() {
     let items = await fetch('https://fakestoreapi.com/products').then(response => response.json())
-    return items 
+    return items
 }
