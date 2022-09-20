@@ -65,9 +65,9 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
                         <p className="product-price"><b>Price:</b> {item.price}$</p>
                         <h5 className="product-title">{item.title}</h5>
                         <p className="product-text"> {item.description}</p>
-                        <form onSubmit={(event, item) => changeQy(event, item)}>
+                        <form className="form-group" onSubmit={(event, item) => changeQy(event, item)}>
                             <label htmlFor="qy">Add to cart</label>
-                            <input ref={inputRef} id="qy" name="qy" type="number" min={0} onChange={addItem} />
+                            <input className="form-control" ref={inputRef} id="qy" name="qy" type="number" min={0} onChange={addItem} />
                             <button className="btn btn-primary" type="submit">Add</button>
                         </form>
                         <h4>Item quantity: {qy}</h4>
