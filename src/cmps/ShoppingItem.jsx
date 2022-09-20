@@ -10,6 +10,7 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
             if(boughtItems[i].name === item.title){
                 setQy(boughtItems[i].quantity)
                 setItemPrice(boughtItems[i].total)
+                inputRef.current.value = boughtItems[i].quantity
                 break
             }
         }
@@ -63,15 +64,15 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
                     <div class="card-body">
                         <p class="product-price"> {item.price}</p>
                         <h5 class="product-title">{item.title}</h5>
-                        <p class="product-text"> {item.description.slice(0, 80)}</p>
+                        <p class="product-text"> {item.description}</p>
                         <form onSubmit={(event, item) => changeQy(event, item)}>
                             <label htmlFor="qy">Add to cart</label>
                             <input ref={inputRef} id="qy" name="qy" type="number" min={0} onChange={addItem} />
-                            <button type="submit">Add</button>
+                            <button className="btn btn-primary" type="submit">Add</button>
                         </form>
                         <h4>Item quantity: {qy}</h4>
                         <h4>total Price: {itemPrice}</h4>
-                        <button onClick={removeItem}>Remove</button>
+                        <button className="btn btn-primary" onClick={removeItem}>Remove</button>
 
                     </div>
                 </div>
