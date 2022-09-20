@@ -10,10 +10,11 @@ const ShoppingCart = () => {
 
     useEffect(() => {
         getItems()
-
+        getLocalItems()
     }, [])
 
     useEffect(() => {
+        saveLocalItems()
         getPrice()
         getShippingPrice()
     },[boughtItems])
@@ -35,6 +36,20 @@ const ShoppingCart = () => {
         let sumItem = itemsQy.reduce((pre, item) => pre + item, 0)
         if (sumItem > 4 ) setShippingPrice(20)
         else setShippingPrice(15)
+    }
+
+    const saveLocalItems = () => {
+        if (boughtItems.length) localStorage.setItem("boughtItems", JSON.stringify(boughtItems))
+    }
+
+    const getLocalItems = () => {
+        if (localStorage.getItem("boughtItems") === null) {
+            localStorage.setItem("boughtItems", JSON.stringify([]))
+        } else {
+            let itemsLocal = JSON.parse(localStorage.getItem("boughtItems"))
+            console.log(itemsLocal)
+            setBoughtItems(itemsLocal)
+        }
     }
     return (
         <main>

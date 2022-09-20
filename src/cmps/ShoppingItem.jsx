@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) => {
     const [qy, setQy] = useState(0)
     const [itemPrice, setItemPrice] = useState(0)
+    const inputRef = useRef()
 
     const changeQy = (event) => {
         setItemPrice(0)
@@ -39,6 +40,7 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
         setBoughtItems(boughtItems.filter(boughtItem => boughtItem.name !== item.title))
         setQy(0)
         setItemPrice(0)
+        inputRef.current.value = ''
     }
 
     return (
@@ -54,7 +56,7 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
                         <p class="product-text"> {item.description.slice(0, 80)}</p>
                         <form onSubmit={(event, item) => changeQy(event, item)}>
                             <label htmlFor="qy">Add to cart</label>
-                            <input id="qy" name="qy" type="number" min={0} onChange={addItem} />
+                            <input ref={inputRef} id="qy" name="qy" type="number" min={0} onChange={addItem} />
                             <button type="submit">Add</button>
                         </form>
                         <h4>Item quantity: {qy}</h4>
