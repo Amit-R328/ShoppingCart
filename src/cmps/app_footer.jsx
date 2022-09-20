@@ -14,7 +14,7 @@ const AppFooter = () => {
     return (
         <section className="footer-container">
             <div className="footer-left">left</div>
-            <div className="footer-main">Rinat Brandes</div>
+            <div className="footer-main">Amit Rozen</div>
             <div className="footer-right">right</div>
         </section>
     )

@@ -7,7 +7,7 @@ import { utilService } from './util.service.js'
 
 
 
-export const todoService = {
+export const shoppingItemService = {
     query,
     // getById,
     // save,
@@ -21,7 +21,8 @@ export const todoService = {
 
 
 async function query() {
-    return await httpService.get('todo')
+    let items = await fetch('https://fakestoreapi.com/products').then(response => response.json())
+    return items 
 }
 // function getById(carId) {
 //     return storageService.get(STORAGE_KEY, carId)

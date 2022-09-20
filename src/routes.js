@@ -1,10 +1,10 @@
-import TodoApp from './views/todo-app.jsx'
+import ShoppingCart from './views/shoppingCart.jsx'
 
 const routes = [
     {
         path: '/',
-        component: <TodoApp />,
-        label: 'Todo',
+        component:  <ShoppingCart />,
+        label: 'Shopping Cart',
     }
 ]
 
