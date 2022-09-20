@@ -5,17 +5,10 @@
 .app-container {
     display: grid;
     grid-template-rows: 100px 1fr 50px;
-    // grid-template-columns: 20% 1fr 20%;   
-    // grid-template-areas: 
-    // "header header header"
-    // "main main main"
-    // "footer footer footer";
     height: 100vh;
 
     .header-container {
         background-color: gray;
-        // height: 100px;        
-        // grid-area: header;
         grid-row: 1/2;
         display: grid;       
         grid-template-columns: $sides 1fr $sides;   
@@ -34,7 +27,6 @@
     .main-container {
         background-color: bisque;
         flex-grow: 1;
-        // grid-area: main;
         grid-row: 2/3;
         display: grid;       
         grid-template-columns: $sides 1fr $sides; 
@@ -54,8 +46,6 @@
 
     .footer-container {
         background-color: rgb(84, 81, 81);
-        // height: 100px;
-        // grid-area: footer;
         grid-row: 3/4;
         display: grid;       
         grid-template-columns: $sides 1fr $sides;  
@@ -76,51 +66,3 @@
     margin: auto;
     max-width: 800px;
 }
-
-// .main-layout {
-//     display: grid;
-//     grid-template-columns: 20px 1fr 20px;
-
-//     >* {
-//         grid-column: 2;
-//     }
-// }
-
-
-// .main-container {
-//     display: grid;
-//     grid-template-columns: 20px 1fr 20px;
-
-//     > * {
-//         grid-column: 2;
-
-//         &.full {
-//             grid-column: 1 /-1;
-//         }
-//     }
-
-//     @include for-narrow-layout {
-//         grid-template-columns: 
-//             minmax(20px, 1fr)
-//             minmax(auto, $mobile-breakpoint)
-//             minmax(20px, 1fr);
-//     }
-//     @include for-normal-layout {
-//         grid-template-columns: 
-//             minmax(20px, 1fr)
-//             minmax(auto, $narrow-breakpoint)
-//             minmax(20px, 1fr);
-//     }
-//     @include for-wide-layout {
-//         grid-template-columns: 
-//             minmax(20px, 1fr)
-//             minmax(auto, $normal-breakpoint)
-//             minmax(20px, 1fr);
-//     }
-// }
-
-// .card-grid {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-//     grid-gap: 20px;
-// }

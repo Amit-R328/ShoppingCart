@@ -55,14 +55,14 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
     }
 
     return (
-        <div className=" col-12 card p-0 mb-3 shadow-sm border-0">
-            <div class="row">
-                <div class="col-4 product_img">
+        <div className="col-md-4 card p-0 mb-3 shadow-sm border-0">
+            <div className="row">
+                <div class="col-md-4 product_img">
                     <img src={`${item.image}`} class="card-img" alt="..." />
                 </div>
                 <div class="col-8">
                     <div class="card-body">
-                        <p class="product-price"> {item.price}</p>
+                        <p class="product-price"><b>Price:</b> {item.price}$</p>
                         <h5 class="product-title">{item.title}</h5>
                         <p class="product-text"> {item.description}</p>
                         <form onSubmit={(event, item) => changeQy(event, item)}>
@@ -71,8 +71,8 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
                             <button className="btn btn-primary" type="submit">Add</button>
                         </form>
                         <h4>Item quantity: {qy}</h4>
-                        <h4>total Price: {itemPrice}</h4>
-                        <button className="btn btn-primary" onClick={removeItem}>Remove</button>
+                        <h4>total Price: {itemPrice}$</h4>
+                        <button className="btn btn-danger" onClick={removeItem}>Remove</button>
 
                     </div>
                 </div>

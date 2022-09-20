@@ -52,12 +52,12 @@ const ShoppingCart = () => {
     }
     return (
         <main>
-            <section className="shoppingCart">
+            <section className="col-md-10 shoppingCart">
                 {shoppingItems.length ? <ShoppingList shoppingItems={shoppingItems} setBoughtItems={setBoughtItems} boughtItems={boughtItems} setPrice={setPrice}/>: <h1>Please wait...</h1>}
             </section>
-            <section className="summery">
-                <h4>Price: {price}</h4>
-                <h4>Shipping Price: {shippingPrice}</h4>
+            <section className="col-md-2 summery">
+                <h4>Price: {price}$</h4>
+                <h4>Shipping Price: {shippingPrice}$</h4>
             </section>
         </main>
     )
