@@ -25,12 +25,13 @@ const ShoppingCart = () => {
 
 
     const getPrice = () => {
+        console.log('boughtItems:::::::', boughtItems)
         let totalPrice = boughtItems.reduce((pre, item) => pre + item.total,0)
         setPrice(totalPrice)
     }
 
     const getShippingPrice = () => {
-        let itemsQy = boughtItems.map(item => item.qy)
+        let itemsQy = boughtItems.map(item => item.quantity)
         let sumItem = itemsQy.reduce((pre, item) => pre + item, 0)
         if (sumItem > 4 ) setShippingPrice(20)
         else setShippingPrice(15)

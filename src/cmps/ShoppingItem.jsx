@@ -15,16 +15,19 @@ export const ShoppingItem = ({ item, setBoughtItems, boughtItems, setPrice }) =>
         }
         items.total = +(items.price * items.quantity)
         console.log(items)
-        if (boughtItems.includes(items.name)) {
-            setBoughtItems(boughtItems.map(bought => {
-                if (bought.name === items.title) {
-                    return {
-                        ...bought, quantity: items.quantity, total: +(items.price * items.quantity)
-                    }
-                }
-                return bought
-            }))
-        } else setBoughtItems([...boughtItems, items])
+        let isItemExist = false
+        let boughtItemsCopy = [...boughtItems]
+        for (let i = 0; i < boughtItemsCopy.length; i++) {
+            if (boughtItemsCopy[i].name === items.name) {
+                isItemExist = true
+                boughtItemsCopy[i].quantity = +items.quantity
+                boughtItemsCopy[i].total = +(+items.quantity * +items.price)
+                break
+            }
+        }
+        if (!isItemExist) boughtItemsCopy.push(items)
+        setBoughtItems(boughtItemsCopy)
+        console.log(boughtItemsCopy)
         setItemPrice(items.total)
     }
 
